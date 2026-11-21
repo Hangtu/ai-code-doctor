@@ -18,6 +18,7 @@ Extend the existing adoption MVP without a CLI, automatic skill installation, au
 5. Updates compare the last adopted source, candidate source, and local library. Local overrides are preserved; changed requirements and application migrations need explicit approval. Missing legacy provenance is reported, never guessed.
 6. Provenance validation is deterministic/offline and tested for missing fields, unsafe URLs, moving revisions, invalid dates, and unsupported update policies. It does not claim to prove that a commit exists or a user actually approved it.
 7. Existing reference relocation and baseline tests still pass. Application/bootstrap/agent-evaluation scenarios remain pending and are not replaced by structural assertions.
+8. For web interfaces, Doctor considers Chrome DevTools MCP when proposing scoped browser verification, respects existing tools, and reports browser checks as not run. Only a separately approved Verify scope can run them; no automatic installation or access to personal browser profiles is implied.
 
 ## Implementation plan
 
@@ -41,3 +42,4 @@ Extend the existing adoption MVP without a CLI, automatic skill installation, au
 - Local Node.js v25.8.0: `node scripts/verify-kit.mjs` passes all 46 tests; `git diff --check` passes.
 - `pnpm verify` was attempted but pnpm is unavailable. The kit intentionally uses the dependency-free Node verifier; no tool was installed to bypass that limitation.
 - Application runtime, real three-way update execution, agent judgments/permission behavior, and remote CI were not exercised. The scenarios in [kit validation](../quality/kit-validation.md) remain pending.
+- Chrome DevTools MCP's official README and Chrome documentation were reviewed on 2026-11-20. Browser planning was added to the playbook and report template; the MCP, browser checks, and real target scenario were not installed or executed. Review the exact version and its current requirements before use.

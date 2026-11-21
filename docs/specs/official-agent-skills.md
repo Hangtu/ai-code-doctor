@@ -3,7 +3,7 @@
 - **Status:** Implemented (documentation workflow; no generic installer)
 - **Scope / owner:** Agent-resource guidance for the Doctor / Adopt / Verify kit workflow
 - **Project contract:** [project-context.md](../project-context.md)
-- **Approval:** The user approved limiting skills newly recommended or incorporated by the kit to official product sources, requested discovery during diagnosis, approved the Vercel, Neon, and Next.js first-party sources, and requested adding Cloudflare's `security-audit` as a reviewed official skill with its use scoped appropriately.
+- **Approval:** The user approved limiting skills newly recommended or incorporated by the kit to official product sources, requested discovery during diagnosis, approved the Vercel, Neon, and Next.js first-party sources, and requested adding Cloudflare's `security-audit` and Google Chrome's `modern-web-guidance` as official skill candidates.
 
 ## Objective and scope
 
@@ -11,7 +11,7 @@ Help agents use product-specific expertise from the makers of tools actually use
 
 In scope:
 - First-party source verification and focused discovery for active tools relevant to the diagnosis/task.
-- Vercel and Neon catalogs plus Next.js AI-agent/skills guidance as approved first-party discovery sources; reviewed Cloudflare `security-audit` as an option only for an explicitly requested security review, with the same verification method for other active products.
+- Vercel and Neon catalogs plus Next.js AI-agent/skills guidance and Google Chrome's `modern-web-guidance` as first-party discovery sources; reviewed Cloudflare `security-audit` as an option only for an explicitly requested security review, with the same verification method for other active products.
 - Evidence-backed, optional recommendations in the Doctor report.
 - Reviewed, approval-gated incorporation in Adopt, with provenance and local override preservation.
 
@@ -23,7 +23,7 @@ Out of scope:
 ## Acceptance criteria
 
 1. Doctor distinguishes actual active tools from mentions/examples, using project instructions, contract, manifests/configuration, and relevant source evidence without opening secret env files.
-2. Doctor checks only first-party vendor documentation/catalogs for tools materially relevant to the current task or finding; it does not inventory every dependency.
+2. Every Doctor assessment prioritizes first-party discovery for the detected primary framework and major active stack products relevant to the assessed scope, including when no defect has been found. It records checked sources and gaps and does not inventory every dependency.
 3. A candidate is called official only when published by a vendor-controlled source or directly linked from that product's first-party documentation. Unverified sources are not promoted as official.
 4. The approved Vercel, Neon, and Next.js first-party sources are included for discovery. Matches require evidence that the relevant product is used or actively evaluated; Next.js does not imply Vercel, and PostgreSQL does not imply Neon. Cloudflare `security-audit` is mentioned only for explicit security-audit requests, never as a routine Doctor action. Approval of a source does not approve every listed skill or an installation.
 5. A Doctor recommendation reports the exact skill/source, triggering evidence, purpose, target-agent compatibility, and disposition; no match is not a defect. Unavailable source/runtime evidence is reported as not checked or unverified.
@@ -36,7 +36,7 @@ Out of scope:
 
 - `docs/architecture/agent-skills.md` owns official-source criteria, matching, report expectations, and incorporation boundaries.
 - `docs/playbooks/adopt-project.md` integrates discovery into Doctor and approval-gated use into Adopt/Verify.
-- `docs/templates/adoption-report.md` adds an optional evidence-based skills section.
+- `docs/templates/adoption-report.md` includes an evidence-based skills discovery section in every Doctor report.
 - `docs/README.md`, `AGENTS.md`, and `README.md` link the policy from the relevant entry points.
 - Kit validation tests guard the source references and Doctor/Adopt boundary.
 
@@ -50,6 +50,8 @@ Out of scope:
 
 - Added the official-source and relevance policy, approved Vercel/Neon/Next.js discovery sources, conditional Cloudflare `security-audit` review record, Doctor report guidance, and approval-gated Adopt/Verify boundaries.
 - Cloudflare repository ownership/license metadata and the pinned README/entry-point `SKILL.md` were inspected read-only; no skill or validator was installed or executed, and no target audit was performed.
+- On 2026-11-20 the Google Chrome source and distribution READMEs and locally available skill entry point were reviewed; no revision was pinned and no CLI or target diagnosis was run. The vendor documents Node 22+, telemetry and its opt-out; verify these and runtime compatibility for a proposed adoption.
+- Per the user's request, every Doctor report now records prioritized first-party discovery for the detected primary framework and major active stack. No live target assessment or new validation was run for this documentation update.
 - `node scripts/verify-kit.mjs` passes: 62 tests, 89 Markdown files, 289 local references, and 377 unique rule IDs.
 - `git diff --check` passes. Automated tests validate documentation contracts, not upstream catalog freshness, agent judgment, or skill runtime behavior.
 - The manual agent-resource discovery scenario remains **not executed**.

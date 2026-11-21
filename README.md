@@ -84,6 +84,8 @@ the kit, or proceed to adoption/verification.
 
 [Doctor protocol →](docs/playbooks/adopt-project.md#doctor) · [Official skills policy →](docs/architecture/agent-skills.md) · **No kit installation required.** “No change recommended” is a valid outcome.
 
+For web interfaces, Doctor also considers [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) when proposing browser checks. Live checks and tool setup require their own approved scope.
+
 ### 2. Adopt — apply an approved plan
 
 ```text

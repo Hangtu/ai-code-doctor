@@ -62,7 +62,7 @@ test("Adopt requires a named, approved skill and reviewed incorporation plan", a
 
 test("the report separates official skill suggestions from findings and install decisions", async () => {
   const report = await read("docs/templates/adoption-report.md");
-  const skills = operationSection(report, "Official agent skills — optional, when relevant");
+  const skills = operationSection(report, "Official agent skills");
   assert.ok(skills);
   for (const label of ["First-party source and revision/date", "Evidence of active use and task fit", "Agent/runtime compatibility", "Disposition"]) {
     assert.ok(skills.includes(label), label);

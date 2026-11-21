@@ -67,13 +67,20 @@ Disposition is independent from finding status/priority. A confirmed issue can b
 
 Include only relevant rows. An inactive capability is not proof that an existing attack surface is absent.
 
-## Official agent skills — optional, when relevant
+## Official agent skills
 
 | Product / skill | First-party source and revision/date | Evidence of active use and task fit | Agent/runtime compatibility | Disposition |
 |---|---|---|---|---|
-| | | | | suggest / not applicable / not checked / confirm |
+| | | | | suggest / no suitable match in reviewed sources / not applicable / not checked / confirm |
 
-Only recommend skills whose official publisher/source was verified and whose guidance is relevant to the inspected project/task. Distinguish an unverified source or unavailable catalog from “no official skill exists.” Doctor may suggest; it never copies, installs, or executes a skill. Incorporation belongs in an explicitly approved Adopt plan.
+Include this section in every Doctor report. Record each primary framework and major active stack product checked, sources reviewed, and any relevant matches. Use `no suitable match in reviewed sources` only after checking; record unavailable evidence as `not checked` or `confirm`, with a reason. If the stack is unknown, state that instead of inventing a product. Only recommend skills whose official publisher/source was verified and whose guidance is relevant to the inspected project/task. Distinguish an unverified source or unavailable catalog from “no official skill exists.” Doctor may suggest; it never copies, installs, or executes a skill. Incorporation belongs in an explicitly approved Adopt plan.
+
+## Browser verification — when a web UI is in scope
+
+- **Proposed checks and rationale:** pages, interactions, console/network or performance evidence needed; identify the relevant finding or gap.
+- **Tool and environment:** existing approved browser tooling or [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp), target environment, availability/compatibility, and any authorized server startup. No tool installation is implied.
+- **Privacy and artifacts:** intended isolated profile, test data, expected screenshots/traces, external requests and retention; do not include secrets or personal data.
+- **Result:** not run during Doctor; after separately approved Verify, report evidence and limits. Lab measurements do not establish field metrics or accessibility conformance.
 
 ## Questions
 

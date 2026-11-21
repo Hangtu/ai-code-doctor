@@ -14,10 +14,10 @@ Existing project skills are user-owned state. Do not delete or replace them auto
 ## Discovery during Doctor
 
 1. Inspect the target's approved contract and relevant manifests, lockfile metadata, configuration, and source references to distinguish tools actually in use from tools merely mentioned in documentation. Do not read secret environment files.
-2. For each active product materially relevant to the requested work or an observed finding, check the vendor's first-party documentation for an official agent-skills catalog. Do not search every transitive dependency or turn the diagnosis into a general skill inventory.
+2. In every Doctor assessment, prioritize the detected primary framework and major active stack products relevant to the assessed scope, whether or not a finding already exists. Check each vendor's first-party documentation for an official agent-skills catalog; include runtime, database, and hosting products when actually used and relevant. Do not search every transitive dependency or turn the diagnosis into a general skill inventory.
 3. Use catalogs as discovery sources, then verify the exact skill's publisher, purpose, supported agent/runtime, and source using first-party documentation or a vendor-controlled repository linked by that documentation. Do not execute skill-provided commands.
 4. Recommend a skill only when its documented task matches the evidence and it adds useful product-specific guidance beyond the project's existing standards. Preserve approved providers and architecture; a kit preference alone is not a reason to introduce a vendor skill.
-5. If network access, a compatible agent runtime, or source evidence is unavailable, say **not checked** or **official status unverified**. Do not infer that no official skill exists.
+5. Record the products and sources checked, including a scoped **no suitable skill found in reviewed sources** where appropriate. If network access or source evidence is unavailable, say **not checked** or **official status unverified**. If agent compatibility cannot be established, mark it **unknown**. Do not infer that no official skill exists.
 
 Approved first-party sources for skill discovery:
 
@@ -29,9 +29,19 @@ Approved first-party sources for skill discovery:
 | Vercel | https://vercel.com/docs/agent-resources/skills | Approved catalog for discovering Vercel-published skills, including React/Next.js and Vercel workflows. Consider only when the project/task matches; Next.js alone is not evidence that Vercel is used. |
 | Neon | https://neon.com/docs/ai/agent-skills | Approved catalog for Neon-published skills. Consider when Neon is actually used or explicitly being evaluated for a current database/backend need. A PostgreSQL dependency alone is not evidence that Neon is used. |
 | Next.js | https://nextjs.org/docs/app/guides/ai-agents and its linked skills source, https://github.com/vercel/next.js/tree/canary/skills | Approved official framework guidance and discovery path for Next.js skills. Match the skill to the installed Next.js version and a concrete workflow; use version-matched bundled docs where available. |
+| Google Chrome / Modern Web Guidance | https://github.com/GoogleChrome/modern-web-guidance-src and https://github.com/GoogleChrome/modern-web-guidance | Approved first-party source for modern web platform capabilities (HTML5/modern HTML, CSS subgrid/container queries/oklch, Popover API, dialogs, View Transitions, accessibility, forms, performance/INP, and Baseline standards). Consider when diagnosing frontend UI, modern CSS/HTML APIs, accessibility, or client performance. |
 | Cloudflare security audit | [Reviewed `security-audit` skill at commit `c1c8a8c1471069fb0e188eeaff69b8e8db6564a8`](https://github.com/cloudflare/security-audit-skill/tree/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit) | Consider only for an explicitly requested security audit, pen test, or scoped security review—not routine Doctor. Full audit execution requires every OS-enforced sandbox control specified by the skill; if unavailable, do not execute target-controlled code. |
 
 The user has approved these sources as first-party starting points. This approves their use for discovery and official-source attribution—not every skill they list, installing a skill, or running its commands. Check individual applicability, agent compatibility, content, and permissions before recommending incorporation. These are not a complete registry; other active tools still need the first-party verification above.
+
+### Google Chrome `modern-web-guidance-src` review record
+
+- **Official source:** repositories `GoogleChrome/modern-web-guidance-src` (source) and `GoogleChrome/modern-web-guidance` (distribution) are published under the official GoogleChrome GitHub organization.
+- **License:** Apache License 2.0 (software) and Creative Commons Attribution 4.0 International (CC-BY 4.0, guides).
+- **Reviewed on:** 2026-11-20, using the upstream source and distribution READMEs and the locally available skill entry point; the upstream revision was not pinned.
+- **Approved use:** consider for a relevant frontend finding involving web platform APIs, accessibility, or performance; recommend only when the skill matches the specific evidence and adds value. It is framework-independent.
+- **Incorporation & execution:** the distribution provides a skill and CLI, requires Node.js 22 or later, and describes installation methods for multiple agents. The upstream README describes telemetry and an opt-out. Check compatibility, privacy, commands, and an exact revision before any approved incorporation. Doctor does not install the skill or execute its CLI; an `npx ...@latest` command may fetch a package and is not a pinned dependency.
+- **Verification limit:** the upstream README and local entry point were read; the skill and CLI were not installed or executed for this review, and no target diagnosis was performed.
 
 ### Cloudflare `security-audit` review record
 
@@ -43,7 +53,7 @@ The user has approved these sources as first-party starting points. This approve
 
 ## Doctor report
 
-Add an **Official agent skills** section only when relevant. List the exact skill and official source, the project evidence that triggers the match, its task-specific value, runtime compatibility, and a disposition: `suggest`, `not applicable`, `not checked`, or `confirm`. A missing match is informational, not a defect or score. Doctor may read public vendor documentation when available, but it must not save files, install/copy skills, run their instructions, or proceed to Adopt.
+Include an **Official agent skills** section in every Doctor report. List products and sources checked and any exact skill and official source, the project evidence that triggers the match, its task-specific value, runtime compatibility, and a disposition: `suggest`, `no suitable match in reviewed sources`, `not applicable`, `not checked`, or `confirm`. A missing match is informational, not a defect or score. Doctor may read public vendor documentation when available, but it must not save files, install/copy skills, run their instructions, or proceed to Adopt.
 
 ## Incorporation during Adopt
 
