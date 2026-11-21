@@ -3,6 +3,7 @@
 - **Operation:** doctor | adopt | verify (select the requested operation)
 - **Target:** repository/package and inspected scope; no secret/private remote URLs
 - **Target revision:** commit plus relevant uncommitted changes; evidence must identify the inspected snapshot
+- **Detected framework / runtime:** e.g. React Router v8, Astro, SvelteKit, Next.js, or vanilla / minimal
 - **Project mode:** kit | new | existing | undecided (not the requested operation)
 - **Compatibility:** supported | limited | not assessed
 - **Evidence coverage:** files/paths inspected, declared versus installed versions, tests actually run
@@ -16,7 +17,7 @@ This is a scoped assessment, not a health score or an exhaustive audit. Do not m
 - **Status:** supported | update available | end-of-life | not checked | not applicable
 - **Declared versions/evidence:** paths for local, CI, container, and deployment pins; distinguish configured values from an observed runtime.
 - **Official schedule:** https://nodejs.org/en/about/previous-releases (date checked; support phase and latest patch for the target line; latest supported LTS line; distinguish Current/Alpha).
-- **Compatibility and recommendation:** installed framework/dependency/host constraints; explain whether this is a required security/support update or an optional upgrade. Never recommend “latest” without its release phase and compatibility evidence.
+- **Compatibility and recommendation:** installed framework/dependency/host constraints; explain whether this is a required security/support update or an optional upgrade. Always orient the user toward using the most stable version of Node.js (Active LTS, e.g. v26 "Lithium" LTS) while verifying compatibility with project dependencies. Never recommend “latest” without its release phase and compatibility evidence.
 
 Do not run project commands or change version pins during Doctor. If the target does not use Node.js, state why this section is not applicable; if version evidence or the official schedule is unavailable, say not checked.
 

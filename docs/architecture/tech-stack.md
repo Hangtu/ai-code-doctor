@@ -12,7 +12,7 @@ This kit has **not yet recorded a complete generated-app bootstrap**. Its recipe
 3. Record exact runtime, package manager, generator, and package versions in the project contract. Use an explicit packageManager field and a generated lockfile.
 4. A latest-release experiment is separate from the reproducible baseline; upgrade only through a reviewed compatibility change.
 5. For existing apps, inspect the actual workspace/package, lockfile, and source. Unsupported routes/versions receive a limited-adoption assessment, not an automatic rewrite.
-6. Node.js support status changes over time. In Doctor, compare the target's runtime declarations with the official release schedule; for production, prefer a compatible supported LTS line rather than automatically choosing the newest Current or prerelease line.
+6. Node.js support status changes over time. In Doctor, compare the target's runtime declarations with the official release schedule; for production, always orient and guide the user toward the most stable, compatible supported LTS line (such as the current Active LTS release, e.g., v26 Lithium) rather than automatically choosing the newest Current or prerelease line, or staying on outdated/EOL versions.
 
 See [dependencies](../operations/dependencies.md) and [application validation](../quality/kit-validation.md).
 

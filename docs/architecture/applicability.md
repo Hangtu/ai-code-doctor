@@ -44,9 +44,9 @@ These are onboarding decisions, not runtime feature flags or an exhaustive produ
 The contract owns paths for routes, feature code, data access, specs, ADRs, glossary, and checks. This library's literal `src/`, `messages/`, `drizzle/`, and `docs/specs/` examples are defaults.
 
 For a monolingual app:
-- Keep `src/app/layout.tsx`; no `[locale]`, locale middleware, message checker, or next-intl provider.
-- Use `next/link` and `next/navigation`; accessible monolingual copy is valid.
-- Use metadata exports for static metadata; `generateMetadata` only when dynamic values require it.
+- Keep the application's root layout or entry template; no unrequested `[locale]`, locale middleware, or multi-locale provider.
+- Use standard framework navigation and links (e.g. `next/link` and `next/navigation` in Next.js, `<Link>` in React Router, standard `<a>` in Astro, `$app/navigation` in SvelteKit); accessible monolingual copy is valid.
+- Use framework metadata mechanisms (exports, `<head>` tags, or layout heads); dynamic metadata only when dynamic values require it.
 - Public content still needs meaningful titles/descriptions, canonical URLs, social metadata, sitemap coverage, and truthful structured data when relevant.
 
 For an existing app:

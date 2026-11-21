@@ -70,3 +70,13 @@ test("the report separates official skill suggestions from findings and install 
   assert.ok(skills.includes("Doctor may suggest"));
   assert.ok(skills.includes("explicitly approved Adopt plan"));
 });
+
+test("Doctor skill discovery is framework-agnostic and covers modern frameworks", async () => {
+  const policy = await read("docs/architecture/agent-skills.md");
+  assert.ok(policy.includes("Svelte / SvelteKit"));
+  assert.ok(policy.includes("Astro"));
+  assert.ok(policy.includes("React Router"));
+  const playbook = await read("docs/playbooks/adopt-project.md");
+  const doctor = operationSection(playbook, "Doctor");
+  assert.ok(doctor.includes("Doctor is framework-agnostic"));
+});

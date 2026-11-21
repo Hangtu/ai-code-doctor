@@ -4,9 +4,10 @@ Tool-agnostic instructions for agents and humans. Read the project contract firs
 
 ## 1. Identify the work before acting
 
-- **This repository:** a documentation and validation kit, not a Next.js application.
+- **This repository:** an AI Code Doctor, documentation, and validation kit. The Doctor is framework-agnostic (supporting React Router v8, Astro, SvelteKit, Next.js, and others).
 - **Active contract:** [docs/project-context.md](docs/project-context.md).
-- **Requested operation:** [Doctor](docs/playbooks/adopt-project.md#doctor) reports only; [Adopt](docs/playbooks/adopt-project.md#adopt) applies an explicit approved plan; [Verify](docs/playbooks/adopt-project.md#verify) runs approved checks without repairs. Default to Doctor if unclear; no automatic transitions. The kit may recommend or incorporate only relevant [official product agent skills](docs/architecture/agent-skills.md), and incorporation requires explicit approval.
+- **Requested operation:** [Doctor](docs/playbooks/adopt-project.md#doctor) reports only; [Adopt](docs/playbooks/adopt-project.md#adopt) applies an explicit approved plan; [Verify](docs/playbooks/adopt-project.md#verify) runs approved checks without repairs. Default to Doctor if unclear; no automatic transitions. Doctor is framework-agnostic: it inspects the target to identify its actual framework and runtime, never forces Next.js conventions on other stacks, and discovers relevant [official product agent skills](docs/architecture/agent-skills.md) matching the detected framework and tools. Incorporation requires explicit approval.
+- **Runtime guidance:** Doctor always orients and guides the user toward using the most stable version of Node.js (specifically the supported Active LTS line, such as v26 Lithium), verifying compatibility before recommending upgrades.
 - **Missing/unapproved target contract:** Doctor and approved Verify are still available without installing the kit. Incorporation requires an approved plan; an approved contract alone is not permission for new writes.
 - **Bootstrap:** only for an explicitly approved new application, never because a manifest is missing.
 - **Existing app:** preserve compatible conventions and merge its instructions; do not replace its stack to match this kit.
@@ -34,15 +35,15 @@ Do not invent scripts or install tools globally to satisfy a command. Report blo
 
 1. **Diagnose before adopting.** Inspect facts yourself, separate confirmed findings/hypotheses/preferences, and cite evidence, impact, priority, confidence, and the next action. Preservation/no-change is valid. Obtain explicit approval before incorporation.
 2. **Small, coherent changes.** Reuse the closest safe, compatible example. Create only files with real responsibilities; no speculative layers. ADRs are for consequential trade-offs.
-3. **Server-first.** In App Router, keep interactive client boundaries small. Keep server-only code and secrets off the client.
+3. **Server-first and framework-idiomatic.** Respect the target framework's boundaries (e.g. loaders/actions in React Router, server frontmatter in Astro, +page.server in SvelteKit, Server Components in Next.js). Keep interactive client boundaries small; keep server-only code and secrets off the client.
 4. **Explicit access policy.** Public operations remain public deliberately; private operations authenticate and authorize in the data layer. UI, layouts, and proxy redirects are not security boundaries.
 5. **Validate external input.** Use the approved validator (Zod for new apps) at actions, HTTP, params, webhooks, and env boundaries.
 6. **Safe caching.** Cache only for a stated reason, with scope and invalidation; never place private or permission-dependent data in a shared cache.
 7. **Accessible UI.** Target WCAG 2.2 AA: semantics, names, keyboard, focus, contrast, and appropriate states. Automated scans supplement manual review.
 8. **Public discoverability.** Indexable pages have appropriate metadata, canonical URLs, sitemap coverage, and truthful structured data where relevant. Private areas are `noindex`; no invented schemas or reviews.
-9. **Consistent design and content.** Use the project's tokens and primitives. When i18n is active, all locales and locale-aware navigation are required; otherwise normal Next navigation and monolingual copy are valid.
+9. **Consistent design and content.** Use the project's tokens and primitives. When i18n is active, all locales and locale-aware navigation are required; otherwise standard framework navigation and monolingual copy are valid.
 10. **Strict types and tests.** No new `any`, `@ts-ignore`, or non-null assertions. Test public behavior; reproduce bugs before fixing them. Record existing debt instead of weakening checks.
-11. **Evidence, not confidence.** Check installed versions and their documentation for uncertain APIs. Measure performance before optimizing.
+11. **Evidence, not confidence.** Check installed versions and their documentation for uncertain APIs. Measure performance before optimizing. Always orient the user toward the most stable supported Node.js LTS release (e.g. v26 Lithium) when assessing runtimes.
 12. **Preserve intent.** Review both standards and acceptance criteria. Keep decisions/specs current and leave a durable next step for another agent.
 
 Applicability and preservation rules: [architecture/applicability.md](docs/architecture/applicability.md). An optional capability is not permission to omit security on code that exists.

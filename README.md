@@ -6,7 +6,7 @@
 
 <p align="center"><strong>Inspect first. Adopt deliberately. Verify changes.</strong></p>
 
-<p align="center">Engineering standards that help AI coding agents build maintainable Next.js applications—from a landing page to a product with accounts and persistence.</p>
+<p align="center">Engineering standards and AI Code Doctor that help AI coding agents inspect, diagnose, and maintain web applications across modern frameworks (React Router v8, Astro, SvelteKit, Next.js, and more).</p>
 
 <p align="center">
   <a href="https://github.com/Hangtu/agentic-nextjs-template/actions/workflows/ci.yml"><img src="https://github.com/Hangtu/agentic-nextjs-template/actions/workflows/ci.yml/badge.svg?branch=main" alt="Kit checks" /></a>
@@ -71,11 +71,13 @@ Run these prompts from the **target project's directory**, with your agent. If i
 ```text
 Read the README of https://github.com/Hangtu/agentic-nextjs-template and follow
 Doctor only against this project. Give me a read-only report with evidence,
-priorities, unknowns, and what you would preserve. When relevant, identify
-matching official product skills with first-party sources; suggest them only.
+priorities, unknowns, and what you would preserve. Identify the detected
+framework (e.g. React Router v8, Astro, SvelteKit, Next.js) and match relevant
+official product skills with first-party sources; suggest them only.
 Include a Node.js runtime status check in every report (mark not applicable if
-absent), using the official release schedule and distinguishing LTS from
-Current/Alpha; do not change pins.
+absent), using the official release schedule, distinguishing LTS from
+Current/Alpha, and always orienting the user toward the most stable supported
+Active LTS version (e.g. v26 Lithium); do not change pins.
 Do not save files, install/copy/execute skills, run application scripts, install
 the kit, or proceed to adoption/verification.
 ```
@@ -122,15 +124,18 @@ configuration.
 
 **Works for**
 
-- New Next.js App Router applications.
-- Existing App Router projects that need structure without a rewrite.
-- Landing pages that should remain free of unnecessary auth, DB, i18n, or analytics.
+- Framework-agnostic code diagnosis and health assessment (Doctor) across modern web frameworks: React Router v8, Astro, SvelteKit, Next.js, and others.
+- Discovering official agent skills matching the target project's detected framework and backend tooling.
+- Assessing Node.js runtime configurations against the official release schedule to guide users toward the most stable supported Active LTS line (e.g. v26 Lithium).
+- New Next.js App Router applications adopting full-stack standards.
+- Existing projects that need architectural and quality structure without a rewrite.
+- Landing pages and minimal apps that should remain free of unnecessary auth, DB, i18n, or analytics.
 
 **Does not do**
 
-- Generate a production-ready app for you.
-- Migrate Pages Router or another framework automatically.
-- Guarantee WCAG conformance, SEO outcomes, or production readiness.
+- Generate a production-ready app for you without an approved plan.
+- Force a framework rewrite onto an existing codebase.
+- Guarantee WCAG conformance, SEO outcomes, or production readiness from static checks alone.
 - Autonomously commit, deploy, provision services, or run unreviewed commands.
 
 ## What's inside

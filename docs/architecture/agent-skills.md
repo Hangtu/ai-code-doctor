@@ -23,6 +23,9 @@ Approved first-party sources for skill discovery:
 
 | Product | Approved official source | Matching principle |
 |---|---|---|
+| Svelte / SvelteKit | Official Svelte repositories and docs (e.g. Svelte 5 documentation and best practices) | Approved official source for Svelte and SvelteKit projects. Match when Svelte or SvelteKit is detected. |
+| Astro | Official Astro repository and first-party docs | Approved official guidance for Astro architecture, islands, and content collections. Match when Astro is detected. |
+| React Router | Official Remix / React Router repository and docs | Approved official guidance for React Router v7/v8 loaders, actions, and route modules. Match when React Router is detected. |
 | Vercel | https://vercel.com/docs/agent-resources/skills | Approved catalog for discovering Vercel-published skills, including React/Next.js and Vercel workflows. Consider only when the project/task matches; Next.js alone is not evidence that Vercel is used. |
 | Neon | https://neon.com/docs/ai/agent-skills | Approved catalog for Neon-published skills. Consider when Neon is actually used or explicitly being evaluated for a current database/backend need. A PostgreSQL dependency alone is not evidence that Neon is used. |
 | Next.js | https://nextjs.org/docs/app/guides/ai-agents and its linked skills source, https://github.com/vercel/next.js/tree/canary/skills | Approved official framework guidance and discovery path for Next.js skills. Match the skill to the installed Next.js version and a concrete workflow; use version-matched bundled docs where available. |

@@ -42,9 +42,11 @@ test("Doctor assesses Node.js lifecycle and compatibility without upgrading the 
   const playbook = await read("docs/playbooks/adopt-project.md");
   const doctor = operationSection(playbook, "Doctor");
   assert.ok(doctor);
+  assert.ok(doctor.includes("Doctor is framework-agnostic"));
   assert.ok(doctor.includes("Node.js runtime (include in every Doctor report)"));
   assert.ok(doctor.includes("https://nodejs.org/en/about/previous-releases"));
   assert.ok(doctor.includes("Current, Alpha"));
+  assert.ok(doctor.includes("most stable version of Node.js"));
   assert.ok(doctor.includes("never changes runtime pins"));
   assert.ok(doctor.includes("If Node.js is irrelevant, explicitly mark this check not applicable"));
 
